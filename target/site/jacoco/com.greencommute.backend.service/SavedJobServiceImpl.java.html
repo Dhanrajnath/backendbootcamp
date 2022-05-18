@@ -21,48 +21,49 @@ public class SavedJobServiceImpl implements  SavedJobService{
     @Autowired
     JobService jobService;
 
-    @Autowired
+
     UserJpa userJpa;
 
     SavedJobsJpa savedJobsJpa;
 
     @Autowired
-<span class="fc" id="L30">    public SavedJobServiceImpl( SavedJobsJpa savedJobsJpa) {</span>
-<span class="fc" id="L31">        this.savedJobsJpa = savedJobsJpa;</span>
-<span class="fc" id="L32">    }</span>
+<span class="fc" id="L30">    public SavedJobServiceImpl(UserJpa userJpa, SavedJobsJpa savedJobsJpa) {</span>
+<span class="fc" id="L31">        this.userJpa =userJpa;</span>
+<span class="fc" id="L32">        this.savedJobsJpa = savedJobsJpa;</span>
+<span class="fc" id="L33">    }</span>
 
     @Override
     public void saveToSavedJobs(int userId, int jobId) {
-<span class="nc" id="L36">        Optional&lt;User&gt; user = userService.getUserById(userId);</span>
-<span class="nc" id="L37">        Optional&lt;Jobs&gt; jobs = jobService.getJobById(jobId);</span>
-<span class="nc bnc" id="L38" title="All 4 branches missed.">        if(user.isPresent() &amp;&amp; jobs.isPresent()) {</span>
-<span class="nc" id="L39">            SavedJobs savedJobs = new SavedJobs(new Timestamp(System.currentTimeMillis()), user.get(), jobs.get());</span>
-<span class="nc" id="L40">            savedJobsJpa.save(savedJobs);</span>
+<span class="nc" id="L37">        Optional&lt;User&gt; user = userService.getUserById(userId);</span>
+<span class="nc" id="L38">        Optional&lt;Jobs&gt; jobs = jobService.getJobById(jobId);</span>
+<span class="nc bnc" id="L39" title="All 4 branches missed.">        if(user.isPresent() &amp;&amp; jobs.isPresent()) {</span>
+<span class="nc" id="L40">            SavedJobs savedJobs = new SavedJobs(new Timestamp(System.currentTimeMillis()), user.get(), jobs.get());</span>
+<span class="nc" id="L41">            savedJobsJpa.save(savedJobs);</span>
         }
-<span class="nc" id="L42">    }</span>
+<span class="nc" id="L43">    }</span>
 
     @Override
     public List&lt;Jobs&gt; getSavedJobsByUserId(int userId) {
-<span class="nc" id="L46">        Optional&lt;User&gt; user = userJpa.findById(userId);</span>
-<span class="nc" id="L47">        List&lt;Jobs&gt; jobList = new ArrayList&lt;&gt;();</span>
-<span class="nc bnc" id="L48" title="All 2 branches missed.">        if(user.isPresent()) {</span>
-<span class="nc" id="L49">            List&lt;SavedJobs&gt; savedJobsList = user.get().getSavedJobsList();</span>
-<span class="nc bnc" id="L50" title="All 2 branches missed.">            for (SavedJobs savedJobs : savedJobsList) {</span>
-<span class="nc" id="L51">                jobList.add(savedJobs.getJobs());</span>
-<span class="nc" id="L52">            }</span>
-<span class="nc" id="L53">            return jobList;</span>
+<span class="nc" id="L47">        Optional&lt;User&gt; user = userJpa.findById(userId);</span>
+<span class="nc" id="L48">        List&lt;Jobs&gt; jobList = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L49" title="All 2 branches missed.">        if(user.isPresent()) {</span>
+<span class="nc" id="L50">            List&lt;SavedJobs&gt; savedJobsList = user.get().getSavedJobsList();</span>
+<span class="nc bnc" id="L51" title="All 2 branches missed.">            for (SavedJobs savedJobs : savedJobsList) {</span>
+<span class="nc" id="L52">                jobList.add(savedJobs.getJobs());</span>
+<span class="nc" id="L53">            }</span>
+<span class="nc" id="L54">            return jobList;</span>
         }
-<span class="nc" id="L55">        return jobList;</span>
+<span class="nc" id="L56">        return jobList;</span>
     }
 
     @Override
     public Boolean deleteSavedJobs(int userId,int jobId) {
-<span class="nc" id="L60">        SavedJobs savedJob = savedJobsJpa.deleteByUserAndJobId(userId, jobId);</span>
-<span class="nc bnc" id="L61" title="All 2 branches missed.">        if(savedJob == null){</span>
-<span class="nc" id="L62">            return false;</span>
+<span class="nc" id="L61">        SavedJobs savedJob = savedJobsJpa.deleteByUserAndJobId(userId, jobId);</span>
+<span class="nc bnc" id="L62" title="All 2 branches missed.">        if(savedJob == null){</span>
+<span class="nc" id="L63">            return false;</span>
         }
-<span class="nc" id="L64">        savedJobsJpa.delete(savedJob);</span>
-<span class="nc" id="L65">        return true;</span>
+<span class="nc" id="L65">        savedJobsJpa.delete(savedJob);</span>
+<span class="nc" id="L66">        return true;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

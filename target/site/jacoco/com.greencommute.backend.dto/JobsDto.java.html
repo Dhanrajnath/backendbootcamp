@@ -2,27 +2,26 @@
 
 import com.greencommute.backend.entity.CommuteRoutes;
 import com.greencommute.backend.entity.Skills;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.List;
 
-<span class="pc bnc" id="L11" title="All 48 branches missed.">@Data</span>
-<span class="fc" id="L12">@NoArgsConstructor</span>
-<span class="fc" id="L13">@AllArgsConstructor</span>
+@Getter
+<span class="fc" id="L10">@Setter</span>
+<span class="fc" id="L11">@NoArgsConstructor</span>
+<span class="fc" id="L12">@AllArgsConstructor</span>
 public class JobsDto {
 
-<span class="fc" id="L16">    private int jobId;</span>
+<span class="fc" id="L15">    private int jobId;</span>
 
-<span class="fc" id="L18">    private String jobTitle;</span>
+<span class="fc" id="L17">    private String jobTitle;</span>
 
-<span class="fc" id="L20">    private String jobDescription;</span>
+<span class="fc" id="L19">    private String jobDescription;</span>
 
-<span class="fc" id="L22">    private String jobLocation;</span>
+<span class="fc" id="L21">    private String jobLocation;</span>
 
-<span class="fc" id="L24">    private List&lt;Skills&gt; skillList;</span>
+<span class="fc" id="L23">    private List&lt;Skills&gt; skillList;</span>
 
-<span class="fc" id="L26">    private List&lt;CommuteRoutes&gt; commuteList;</span>
+<span class="fc" id="L25">    private List&lt;CommuteRoutes&gt; commuteList;</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>
