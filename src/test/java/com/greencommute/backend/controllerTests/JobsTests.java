@@ -16,6 +16,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @RunWith(SpringRunner.class)
@@ -43,4 +45,18 @@ public class JobsTests {
         Assertions.assertEquals(jobsOptional.get().getJobId(),responseEntity.getBody());
     }
 
+    @Test
+    public void getAllJobsTest() {
+        List<Jobs> jobsList = new ArrayList<>();
+        Jobs job = new Jobs(1,"Software Engineer","Developer","Hyderabad",null,null);
+        jobsList.add(job);
+
+        List<JobsDto> jobsDtoList = jobMapper.toJobDtoList(jobsList);
+        ResponseEntity responseEntity = new ResponseEntity<>(jobsDtoList.get(0).getJobId(), HttpStatus.OK);
+
+        Mockito.when(jobService.getAllJobs()).thenReturn(jobsList);
+        Mockito.when(jobsController.getAllJobs(null,null)).thenReturn(responseEntity);
+        Assertions.assertEquals(jobsList.get(0).getJobId(),responseEntity.getBody());
+
+    }
 }
