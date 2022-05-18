@@ -5,7 +5,6 @@ import com.greencommute.backend.entity.User;
 import com.greencommute.backend.repository.SavedJobsJpa;
 import com.greencommute.backend.service.SavedJobService;
 import com.greencommute.backend.service.SavedJobServiceImpl;
-import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.runner.RunWith;
@@ -13,6 +12,7 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
