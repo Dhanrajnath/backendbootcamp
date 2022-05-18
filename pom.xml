@@ -15,7 +15,7 @@
 	<description>GreenCommute Project Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>
-		<sonar.projectKey>Dhanrajnath_GreenCommute-Backend</sonar.projectKey>
+		<sonar.projectKey>Dhanrajnath_backendbootcamp</sonar.projectKey>
 		<sonar.organization>dhanrajnath</sonar.organization>
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
 	</properties>
