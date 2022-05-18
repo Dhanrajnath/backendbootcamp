@@ -1,2 +1,0 @@
-com.greencommute.backend.helper.Helper#getJobsSearchBySkills(Ljava/util/List;[Ljava/lang/String;)Ljava/util/List;
-java.util.stream.Collectors#toList()Ljava/util/stream/Collector;

@@ -1,23 +1,0 @@
-
-Xcom.greencommute.backend.controller.UserController#getSavedJobsOfUser(I)Ljava/util/List;’
-‡/home/dhanrp/Desktop/Spring-Bootcamp/GreenCommute-Backend/Backend/src/main/java/com/greencommute/backend/controller/UserController.java2 2(("1*à
-1’
-‡/home/dhanrp/Desktop/Spring-Bootcamp/GreenCommute-Backend/Backend/src/main/java/com/greencommute/backend/controller/UserController.java3 3(§
-¤
-’
-‡/home/dhanrp/Desktop/Spring-Bootcamp/GreenCommute-Backend/Backend/src/main/java/com/greencommute/backend/controller/UserController.java3 3(:
-%04com.greencommute.backend.service.SavedJobServiceImpl"__id*K*I4
-2com.greencommute.backend.controller.UserController"
-savedJobServiceëè
-’
-‡/home/dhanrp/Desktop/Spring-Bootcamp/GreenCommute-Backend/Backend/src/main/java/com/greencommute/backend/controller/UserController.java3 3(7
-%1java.util.List"\com.greencommute.backend.service.SavedJobServiceImpl#getSavedJobsByUserId(I)Ljava/util/List;*<
-:
-%04com.greencommute.backend.service.SavedJobServiceImpl*
-""2getSavedJobsByUserId(I)"­
-’
-‡/home/dhanrp/Desktop/Spring-Bootcamp/GreenCommute-Backend/Backend/src/main/java/com/greencommute/backend/controller/UserController.java3 3(8
-
-%1java.util.List:
-""B64
-2com.greencommute.backend.controller.UserController

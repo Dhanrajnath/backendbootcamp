@@ -1,2 +1,0 @@
-com.greencommute.backend.controller.JobsController#getAllJobs(Ljava/lang/String;[Ljava/lang/String;)Lorg/springframework/http/ResponseEntity;
-org.springframework.http.ResponseEntity#ok()Lorg/springframework/http/ResponseEntity$BodyBuilder;
