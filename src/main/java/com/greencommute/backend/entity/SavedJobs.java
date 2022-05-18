@@ -6,11 +6,11 @@ import lombok.*;
 import javax.persistence.*;
 import java.sql.Timestamp;
 
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Getter
 @Table(name = "saved_job")
 public class SavedJobs {
 

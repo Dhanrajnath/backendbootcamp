@@ -31,8 +31,6 @@ class JobsEntityTests {
         Assertions.assertEquals("c",jobs.getJobLocation());
         Assertions.assertNull(jobs.getSkillList());
         Assertions.assertNull(jobs.getCommuteList());
-
-        Assertions.assertEquals("Jobs(jobId=2, jobTitle=a, jobDescription=b, jobLocation=c)",jobs.toString());
     }
 
 }

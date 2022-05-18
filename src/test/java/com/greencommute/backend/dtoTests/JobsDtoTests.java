@@ -31,8 +31,6 @@ class JobsDtoTests {
         Assertions.assertEquals("c",jobsDto.getJobLocation());
         Assertions.assertNull(jobsDto.getSkillList());
         Assertions.assertNull(jobsDto.getCommuteList());
-
-        Assertions.assertEquals("JobsDto(jobId=2, jobTitle=a, jobDescription=b, jobLocation=c, skillList=null, commuteList=null)",jobsDto.toString());
     }
 
 }

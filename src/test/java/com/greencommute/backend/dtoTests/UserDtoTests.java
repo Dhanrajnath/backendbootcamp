@@ -21,7 +21,5 @@ class UserDtoTests {
 
         Assertions.assertEquals(2,userDto.getUserId());
         Assertions.assertEquals("user2",userDto.getUserName());
-
-        Assertions.assertEquals("UserDto(userId=2, userName=user2)",userDto.toString());
     }
 }
