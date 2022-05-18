@@ -2,7 +2,6 @@ package com.greencommute.backend.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.*;
-import org.springframework.web.bind.annotation.GetMapping;
 
 import javax.persistence.*;
 import java.util.List;
