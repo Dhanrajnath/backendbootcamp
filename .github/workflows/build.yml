@@ -29,8 +29,10 @@ jobs:
           path: ~/.m2
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-m2
+      - name: mvn clean install
+        run: ./mvnw clean install
       - name: Build and analyze
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: mvn verify sonar:sonar -Dsonar.host.url=https://sonarcloud.io  -Dsonar.organization=dhanrajnath -Dsonar.login=95cb48207f4b004450e8aab66dbd583e6cff98f2 -Dsonar.projectKey=Dhanrajnath_GreenCommute-Backend
+        run: ./mvnw verify sonar:sonar -Dsonar.host.url=https://sonarcloud.io  -Dsonar.organization=dhanrajnath -Dsonar.login=95cb48207f4b004450e8aab66dbd583e6cff98f2 -Dsonar.projectKey=Dhanrajnath_GreenCommute-Backend
