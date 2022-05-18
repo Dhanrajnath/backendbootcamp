@@ -28,6 +28,12 @@ class HelperClassTests {
         Mockito.when(helper.getSkills(skillList)).thenReturn(skillNames);
         Assertions.assertEquals(skillNames,helper.getSkills(skillList));
         Mockito.verify(helper).getSkills(skillList);
+
+        skillNames = new ArrayList<>();
+        List<Skills> skillsList1 = new ArrayList<>();
+        Mockito.when(helper.getSkills(skillsList1)).thenReturn(skillNames);
+        Assertions.assertEquals(skillNames,helper.getSkills(skillsList1));
+        Mockito.verify(helper).getSkills(skillList);
     }
 
     @Test
