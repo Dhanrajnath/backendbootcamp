@@ -2,13 +2,12 @@ package com.greencommute.backend.dto;
 
 import com.greencommute.backend.entity.CommuteRoutes;
 import com.greencommute.backend.entity.Skills;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.List;
 
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class JobsDto {
