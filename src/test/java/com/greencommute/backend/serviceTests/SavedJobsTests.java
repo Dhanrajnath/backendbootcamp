@@ -21,7 +21,7 @@ import static org.mockito.Mockito.doNothing;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class SavedJobTests {
+public class SavedJobsTests {
 
     @Mock
     private SavedJobService savedJobService;
