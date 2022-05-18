@@ -6,39 +6,38 @@ import lombok.*;
 import javax.persistence.*;
 import java.sql.Timestamp;
 
-<span class="nc bnc" id="L9" title="All 32 branches missed.">@Data</span>
-<span class="fc" id="L10">@NoArgsConstructor</span>
-<span class="nc" id="L11">@AllArgsConstructor</span>
-@Entity
 @Getter
+<span class="fc" id="L10">@Setter</span>
+<span class="fc" id="L11">@NoArgsConstructor</span>
+@Entity
 @Table(name = &quot;saved_job&quot;)
 public class SavedJobs {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = &quot;saved_job_id&quot;)
-<span class="nc" id="L20">    private int savedJobId;</span>
+<span class="fc" id="L19">    private int savedJobId;</span>
 
     @Column(name = &quot;created&quot;)
-<span class="nc" id="L23">    private Timestamp createdAt;</span>
+<span class="fc" id="L22">    private Timestamp createdAt;</span>
 
     @ToString.Exclude
     @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH}, fetch = FetchType.LAZY)
     @JoinColumn(name = &quot;user_id&quot;)
     @JsonBackReference
-<span class="nc" id="L29">    private User user;</span>
+<span class="fc" id="L28">    private User user;</span>
 
     @ToString.Exclude
     @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinColumn(name = &quot;job_id&quot;)
     @JsonBackReference
-<span class="nc" id="L35">    private Jobs jobs;</span>
+<span class="fc" id="L34">    private Jobs jobs;</span>
 
-<span class="nc" id="L37">    public SavedJobs(Timestamp createdAt, User user, Jobs jobs) {</span>
-<span class="nc" id="L38">        this.createdAt = createdAt;</span>
-<span class="nc" id="L39">        this.user = user;</span>
-<span class="nc" id="L40">        this.jobs = jobs;</span>
-<span class="nc" id="L41">    }</span>
+<span class="fc" id="L36">    public SavedJobs(Timestamp createdAt, User user, Jobs jobs) {</span>
+<span class="fc" id="L37">        this.createdAt = createdAt;</span>
+<span class="fc" id="L38">        this.user = user;</span>
+<span class="fc" id="L39">        this.jobs = jobs;</span>
+<span class="fc" id="L40">    }</span>
 
 
 }

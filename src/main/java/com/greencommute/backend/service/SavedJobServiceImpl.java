@@ -21,13 +21,14 @@ public class SavedJobServiceImpl implements  SavedJobService{
     @Autowired
     JobService jobService;
 
-    @Autowired
+
     UserJpa userJpa;
 
     SavedJobsJpa savedJobsJpa;
 
     @Autowired
-    public SavedJobServiceImpl( SavedJobsJpa savedJobsJpa) {
+    public SavedJobServiceImpl(UserJpa userJpa, SavedJobsJpa savedJobsJpa) {
+        this.userJpa =userJpa;
         this.savedJobsJpa = savedJobsJpa;
     }
 
