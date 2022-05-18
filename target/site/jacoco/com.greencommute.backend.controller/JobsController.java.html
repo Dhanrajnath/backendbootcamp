@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>JobsController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Backend</a> &gt; <a href="index.source.html" class="el_package">com.greencommute.backend.controller</a> &gt; <span class="el_source">JobsController.java</span></div><h1>JobsController.java</h1><pre class="source lang-java linenums">package com.greencommute.backend.controller;
+
+
+import com.greencommute.backend.dto.JobsDto;
+import com.greencommute.backend.entity.Jobs;
+import com.greencommute.backend.exception.DataNotFoundException;
+import com.greencommute.backend.helper.Helper;
+import com.greencommute.backend.mapper.JobMapper;
+import com.greencommute.backend.service.JobServiceImpl;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Optional;
+
+<span class="fc" id="L18">@Slf4j</span>
+@RestController
+@RequestMapping(&quot;api/v1/jobs&quot;)
+public class JobsController {
+
+    private final JobServiceImpl jobService;
+
+    @Autowired
+<span class="fc" id="L26">    public JobsController(JobServiceImpl jobService) {</span>
+<span class="fc" id="L27">        this.jobService = jobService;</span>
+<span class="fc" id="L28">    }</span>
+
+    @Autowired
+    public Helper helper;
+
+    @Autowired
+    public JobMapper jobMapper;
+
+    @GetMapping
+    public ResponseEntity&lt;List&lt;JobsDto&gt;&gt; getAllJobs(@RequestParam(value=&quot;location&quot;,required = false) String loc, @RequestParam(value=&quot;skill&quot;,required = false) String[] skill) {
+<span class="nc" id="L38">        List&lt;Jobs&gt; jobsList = jobService.getAllJobs();</span>
+<span class="nc bnc" id="L39" title="All 4 branches missed.">        if(loc==null &amp;&amp; skill ==null){</span>
+<span class="nc" id="L40">            List&lt;JobsDto&gt; jobsDtoList = jobMapper.toJobDtoList(jobsList);</span>
+<span class="nc" id="L41">            return ResponseEntity.ok().body(jobsDtoList);</span>
+<span class="nc bnc" id="L42" title="All 2 branches missed.">        } else if (loc==null) {</span>
+<span class="nc" id="L43">            List&lt;Jobs&gt; jobsList1 = helper.getJobsSearchBySkills(jobsList,skill);</span>
+<span class="nc" id="L44">            List&lt;JobsDto&gt; jobsDtoList1 = jobMapper.toJobDtoList(jobsList1);</span>
+<span class="nc" id="L45">            return ResponseEntity.ok().body(jobsDtoList1);</span>
+<span class="nc bnc" id="L46" title="All 2 branches missed.">        } else if (skill==null) {</span>
+<span class="nc" id="L47">            List&lt;Jobs&gt; jobsList2=jobService.getJobsSearchByLocation(loc);</span>
+<span class="nc" id="L48">            List&lt;JobsDto&gt; jobsDtoList2 = jobMapper.toJobDtoList(jobsList2);</span>
+<span class="nc" id="L49">            return ResponseEntity.ok().body(jobsDtoList2);</span>
+        } else{
+<span class="nc" id="L51">            List&lt;Jobs&gt; jobsByLoc =jobService.getJobsSearchByLocation(loc);</span>
+<span class="nc" id="L52">            List&lt;Jobs&gt; jobsByLocSkill=helper.getJobsSearchBySkills(jobsByLoc,skill);</span>
+<span class="nc" id="L53">            List&lt;JobsDto&gt; jobsDtoList3 = jobMapper.toJobDtoList(jobsByLocSkill);</span>
+<span class="nc" id="L54">            return ResponseEntity.ok().body(jobsDtoList3);</span>
+        }
+    }
+
+    @GetMapping(&quot;/{id}&quot;)
+    public ResponseEntity&lt;JobsDto&gt; getJobById(@PathVariable(value=&quot;id&quot;) int id){
+<span class="nc" id="L60">        Optional&lt;Jobs&gt; job = jobService.getJobById(id);</span>
+<span class="nc bnc" id="L61" title="All 2 branches missed.">        if (job.isEmpty()){</span>
+<span class="nc" id="L62">            throw new DataNotFoundException(&quot;No job found with id: &quot;+id);</span>
+        }
+<span class="nc" id="L64">        JobsDto jobDto = jobMapper.toJobsDto(job.get());</span>
+<span class="nc" id="L65">        return ResponseEntity.ok().body(jobDto);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

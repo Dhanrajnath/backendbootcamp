@@ -1,0 +1,36 @@
+
+C__sonar_lambda_0$com.greencommute.backend.controller.UserController’
+‡/home/dhanrp/Desktop/Spring-Bootcamp/GreenCommute-Backend/Backend/src/main/java/com/greencommute/backend/controller/UserController.java9Z <(	"startingBlock*·
+startingBlock’
+‡/home/dhanrp/Desktop/Spring-Bootcamp/GreenCommute-Backend/Backend/src/main/java/com/greencommute/backend/controller/UserController.java9Z <(	ˆ
+…
+
+__unknown_file (
+
+reqPayloadjava.util.Map"__id*F*D4
+2com.greencommute.backend.controller.UserController"
+
+reqPayload€
+~
+
+__unknown_file (
+jobIdjava.lang.String"__id*A*?4
+2com.greencommute.backend.controller.UserController"
+jobId*
+1*²
+1’
+‡/home/dhanrp/Desktop/Spring-Bootcamp/GreenCommute-Backend/Backend/src/main/java/com/greencommute/backend/controller/UserController.java: :(÷
+ô
+’
+‡/home/dhanrp/Desktop/Spring-Bootcamp/GreenCommute-Backend/Backend/src/main/java/com/greencommute/backend/controller/UserController.java;! ;(6
+%4java.lang.Integer"__mapGet*
+
+
+reqPayloadjava.util.Map*
+
+jobIdjava.lang.String"
+’
+‡/home/dhanrp/Desktop/Spring-Bootcamp/GreenCommute-Backend/Backend/src/main/java/com/greencommute/backend/controller/UserController.java; ;(7
+"":,
+jobs$com.greencommute.backend.entity.JobsB 
+java.util.function.Predicate
