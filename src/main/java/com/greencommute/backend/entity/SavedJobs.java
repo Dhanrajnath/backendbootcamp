@@ -9,7 +9,6 @@ import java.sql.Timestamp;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
 @Entity
 @Table(name = "saved_job")
 public class SavedJobs {
