@@ -7,8 +7,8 @@ import com.greencommute.backend.entity.User;
 import com.greencommute.backend.mapper.UserMapper;
 import com.greencommute.backend.service.SavedJobServiceImpl;
 import com.greencommute.backend.service.UserServiceImpl;
-import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
@@ -22,7 +22,7 @@ import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class UserTests {
+class UserTests {
 
     @Mock
     UserServiceImpl userService;
@@ -39,7 +39,7 @@ public class UserTests {
 
 
     @Test
-    public void getUserByIdTest(){
+    void getUserByIdTest(){
         User user = new User(1, "Dhanrajnath", null);
         UserDto userDto = userMapper.toUserDto(user);
         ResponseEntity responseEntity = new ResponseEntity<>(userDto,HttpStatus.OK);
@@ -49,7 +49,7 @@ public class UserTests {
     }
 
     @Test
-    public void getUserSavedJobsByIdTest(){
+    void getUserSavedJobsByIdTest(){
         List<Jobs> jobsList = new ArrayList<>();
         Mockito.when(savedJobService.getSavedJobsByUserId(1)).thenReturn(jobsList);
         Assertions.assertEquals(jobsList ,userController.getSavedJobsOfUser(1));
