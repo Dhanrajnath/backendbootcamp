@@ -22,9 +22,16 @@ class HelperClassTests {
     void getSkillsTest(){
         List<Skills> skillList = new ArrayList<>();
         Skills skill = new Skills(1,"a",null);
+        Skills skill2 = new Skills();
+        skill2.setSkillId(2);
+        skill2.setSkillName("b");
+        skill2.setJobsList(null);
         skillList.add(skill);
+        skillList.add(skill2);
         List<String> skillNames = new ArrayList<>();
-        skillNames.add("a");
+        skillNames.add(skill.getSkillName());
+        skillNames.add(skill2.getSkillName());
+
         Mockito.when(helper.getSkills(skillList)).thenReturn(skillNames);
         Assertions.assertEquals(skillNames,helper.getSkills(skillList));
         Mockito.verify(helper).getSkills(skillList);
