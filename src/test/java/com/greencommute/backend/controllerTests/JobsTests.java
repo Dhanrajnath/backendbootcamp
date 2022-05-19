@@ -5,8 +5,8 @@ import com.greencommute.backend.dto.JobsDto;
 import com.greencommute.backend.entity.Jobs;
 import com.greencommute.backend.mapper.JobMapper;
 import com.greencommute.backend.service.JobServiceImpl;
-import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
@@ -22,7 +22,7 @@ import java.util.Optional;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class JobsTests {
+class JobsTests {
 
     @Mock
     JobServiceImpl jobService;
@@ -34,7 +34,7 @@ public class JobsTests {
     JobMapper jobMapper;
 
     @Test
-    public void getJobByIdTest() {
+    void getJobByIdTest() {
         Jobs job = new Jobs(1,"Software Engineer","Developer","Hyderabad",null,null);
         Optional<Jobs> jobsOptional = Optional.of(job);
         JobsDto jobsDto = jobMapper.toJobsDto(job);
@@ -46,7 +46,7 @@ public class JobsTests {
     }
 
     @Test
-    public void getAllJobsTest() {
+    void getAllJobsTest() {
         List<Jobs> jobsList = new ArrayList<>();
         Jobs job = new Jobs(1,"Software Engineer","Developer","Hyderabad",null,null);
         jobsList.add(job);
@@ -56,6 +56,10 @@ public class JobsTests {
 
         Mockito.when(jobService.getAllJobs()).thenReturn(jobsList);
         Mockito.when(jobsController.getAllJobs(null,null)).thenReturn(responseEntity);
+        Assertions.assertEquals(jobsList.get(0).getJobId(),responseEntity.getBody());
+
+        Mockito.when(jobService.getJobsSearchByLocation("Hyderabad")).thenReturn(jobsList);
+        Mockito.when(jobsController.getAllJobs("Hyderabad",null)).thenReturn(responseEntity);
         Assertions.assertEquals(jobsList.get(0).getJobId(),responseEntity.getBody());
 
     }

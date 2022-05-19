@@ -3,7 +3,6 @@ package com.greencommute.backend.controller;
 import com.greencommute.backend.dto.ResponseDto;
 import com.greencommute.backend.dto.UserDto;
 import com.greencommute.backend.entity.Jobs;
-import com.greencommute.backend.entity.SavedJobs;
 import com.greencommute.backend.entity.User;
 import com.greencommute.backend.exception.DataNotFoundException;
 import com.greencommute.backend.mapper.UserMapper;

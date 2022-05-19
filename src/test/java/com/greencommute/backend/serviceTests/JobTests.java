@@ -2,11 +2,8 @@ package com.greencommute.backend.serviceTests;
 
 import com.greencommute.backend.entity.Jobs;
 import com.greencommute.backend.repository.JobsJpa;
-import com.greencommute.backend.repository.UserJpa;
 import com.greencommute.backend.service.JobService;
 import com.greencommute.backend.service.JobServiceImpl;
-import com.greencommute.backend.service.UserService;
-import com.greencommute.backend.service.UserServiceImpl;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -17,7 +14,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
