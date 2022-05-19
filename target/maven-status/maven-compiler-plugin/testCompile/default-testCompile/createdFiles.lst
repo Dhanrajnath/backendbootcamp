@@ -3,6 +3,7 @@ com/greencommute/backend/serviceTests/UserTests.class
 com/greencommute/backend/dtoTests/JobsDtoTests.class
 com/greencommute/backend/helperTests/HelperClassTests.class
 com/greencommute/backend/entityTests/UserEntityTests.class
+com/greencommute/backend/controllerTests/JobsTests.class
 com/greencommute/backend/dtoTests/UserDtoTests.class
 com/greencommute/backend/exceptionTests/DataNotFoundExceptionTests.class
 com/greencommute/backend/dtoTests/ResponseDtoTests.class
