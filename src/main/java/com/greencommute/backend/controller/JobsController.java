@@ -9,7 +9,6 @@ import com.greencommute.backend.mapper.JobMapper;
 import com.greencommute.backend.service.JobServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -34,34 +33,29 @@ public class JobsController {
     public JobMapper jobMapper;
 
     @GetMapping
-    public ResponseEntity<List<JobsDto>> getAllJobs(@RequestParam(value="location",required = false) String loc, @RequestParam(value="skill",required = false) String[] skill) {
+    public List<JobsDto> getAllJobs(@RequestParam(value="location",required = false) String loc, @RequestParam(value="skill",required = false) String[] skill) {
         List<Jobs> jobsList = jobService.getAllJobs();
         if(loc==null && skill ==null){
-            List<JobsDto> jobsDtoList = jobMapper.toJobDtoList(jobsList);
-            return ResponseEntity.ok().body(jobsDtoList);
+            return jobMapper.toJobDtoList(jobsList);
         } else if (loc==null) {
             List<Jobs> jobsList1 = helper.getJobsSearchBySkills(jobsList,skill);
-            List<JobsDto> jobsDtoList1 = jobMapper.toJobDtoList(jobsList1);
-            return ResponseEntity.ok().body(jobsDtoList1);
+            return jobMapper.toJobDtoList(jobsList1);
         } else if (skill==null) {
             List<Jobs> jobsList2=jobService.getJobsSearchByLocation(loc);
-            List<JobsDto> jobsDtoList2 = jobMapper.toJobDtoList(jobsList2);
-            return ResponseEntity.ok().body(jobsDtoList2);
+           return jobMapper.toJobDtoList(jobsList2);
         } else{
             List<Jobs> jobsByLoc =jobService.getJobsSearchByLocation(loc);
             List<Jobs> jobsByLocSkill=helper.getJobsSearchBySkills(jobsByLoc,skill);
-            List<JobsDto> jobsDtoList3 = jobMapper.toJobDtoList(jobsByLocSkill);
-            return ResponseEntity.ok().body(jobsDtoList3);
+            return jobMapper.toJobDtoList(jobsByLocSkill);
         }
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<JobsDto> getJobById(@PathVariable(value="id") int id){
+    public JobsDto getJobById(@PathVariable(value="id") int id){
         Optional<Jobs> job = jobService.getJobById(id);
         if (job.isEmpty()){
             throw new DataNotFoundException("No job found with id: "+id);
         }
-        JobsDto jobDto = jobMapper.toJobsDto(job.get());
-        return ResponseEntity.ok().body(jobDto);
+        return jobMapper.toJobsDto(job.get());
     }
 }
