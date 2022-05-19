@@ -3,6 +3,7 @@ package com.greencommute.backend.controller;
 import com.greencommute.backend.dto.ResponseDto;
 import com.greencommute.backend.dto.UserDto;
 import com.greencommute.backend.entity.Jobs;
+import com.greencommute.backend.entity.SavedJobs;
 import com.greencommute.backend.entity.User;
 import com.greencommute.backend.exception.DataNotFoundException;
 import com.greencommute.backend.mapper.UserMapper;
@@ -78,17 +79,11 @@ public class UserController {
     @DeleteMapping("/{id}/savedJobs")
     public ResponseEntity<ResponseDto> deleteSavedJobsOfUser(@PathVariable(value="id") int id, @RequestBody Map<String,Integer> reqPayload) {
         final String jobId = "jobId";
-        Boolean res=savedJobService.deleteSavedJobs(id,reqPayload.get(jobId));
+        savedJobService.deleteSavedJobs(id,reqPayload.get(jobId));
         ResponseDto responseDto=new ResponseDto();
         responseDto.setUserId(id);
         responseDto.setJobId(reqPayload.get(jobId));
-        if(Boolean.TRUE.equals(res)){
-            responseDto.setMessage("Successfully deleted saved job");
-            return ResponseEntity.ok().body(responseDto);
-        }
-        else {
-            responseDto.setMessage("No saved job found with user id and job id");
-            return ResponseEntity.badRequest().body(responseDto);
-        }
+        responseDto.setMessage("Successfully deleted saved job");
+        return ResponseEntity.ok().body(responseDto);
     }
 }
