@@ -8,6 +8,6 @@ public interface SavedJobService {
     void saveToSavedJobs(int userId, int jobId);
     List<Jobs> getSavedJobsByUserId(int userId);
 
-    Boolean deleteSavedJobs(int userId,int jobId);
+    void deleteSavedJobs(int userId,int jobId);
 
 }

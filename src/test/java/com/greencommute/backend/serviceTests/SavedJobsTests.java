@@ -20,6 +20,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import static org.mockito.Mockito.doNothing;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 class SavedJobsTests {
@@ -41,7 +43,15 @@ class SavedJobsTests {
     Timestamp timestamp =new Timestamp(System.currentTimeMillis());
 
     @Test
-    void getSavedJobTest(){
+    void deleteSavedJobTest(){
+        Jobs job = new Jobs(1,"Software Engineer","Developer","Hyderabad",null,null);
+        User user = new User(1, "Dhanrajnath", null);
+        SavedJobs savedJobs = new SavedJobs(timestamp,user,job);
+
+//        doNothing().when(savedJobService.deleteSavedJobs(1,1));
+//        Mockito.when(savedJobService.deleteSavedJobs(1,1)).thenReturn(false);
+//        Assertions.assertEquals(false,savedJobService.deleteSavedJobs(1,1));
+//        Mockito.verify(savedJobService).deleteSavedJobs(1,1);
 //        Jobs job = new Jobs(1,"Software Engineer","Developer","Hyderabad",null,null);
 //        List<Jobs> savedJob = new ArrayList<>();
 //        savedJob.add(job);
