@@ -13,6 +13,9 @@ import org.mockito.Mockito;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 class JobsTests {
@@ -30,11 +33,24 @@ class JobsTests {
     @Test
     void getJobByIdTest(){
         Jobs job = new Jobs(1,"Software Engineer","Developer","Hyderabad",null,null);
-        int id = 1;
         JobsDto jobDto = jobMapper.toJobsDto(job);
-        Mockito.when(jobsController.getJobById(id)).thenReturn(jobDto);
-        Assertions.assertEquals(jobDto,jobsController.getJobById(id));
-        Mockito.verify(jobsController).getJobById(id);
+        Mockito.when(jobsController.getJobById(1)).thenReturn(jobDto);
+        Assertions.assertEquals(jobDto,jobsController.getJobById(1));
+        Mockito.verify(jobsController).getJobById(1);
+    }
+
+    @Test
+    void getAllJobsTest() {
+        Jobs job = new Jobs(1,"Software Engineer","Developer","Hyderabad",null,null);
+        List<Jobs> jobsList = new ArrayList<>();
+        jobsList.add(job);
+        JobsDto jobDto = jobMapper.toJobsDto(job);
+        List<JobsDto> jobsDtoList = new ArrayList<>();
+        jobsDtoList.add(jobDto);
+        Mockito.when(jobService.getAllJobs()).thenReturn(jobsList);
+        Mockito.when(jobsController.getAllJobs(null,null)).thenReturn(jobsDtoList);
+        Assertions.assertEquals(jobsDtoList,jobsController.getAllJobs(null,null));
+        Mockito.verify(jobsController).getAllJobs(null,null);
     }
 
 }
