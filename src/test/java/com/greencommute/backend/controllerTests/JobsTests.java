@@ -3,6 +3,7 @@ package com.greencommute.backend.controllerTests;
 import com.greencommute.backend.controller.JobsController;
 import com.greencommute.backend.dto.JobsDto;
 import com.greencommute.backend.entity.Jobs;
+import com.greencommute.backend.entity.Skills;
 import com.greencommute.backend.mapper.JobMapper;
 import com.greencommute.backend.service.JobServiceImpl;
 import org.junit.jupiter.api.Assertions;
@@ -47,8 +48,12 @@ class JobsTests {
 
     @Test
     void getAllJobsTest() {
+        Skills skills = new Skills(1,"C",null);
+        List<Skills> skillsList = new ArrayList<>();
+        skillsList.add(skills);
+
         List<Jobs> jobsList = new ArrayList<>();
-        Jobs job = new Jobs(1,"Software Engineer","Developer","Hyderabad",null,null);
+        Jobs job = new Jobs(1,"Software Engineer","Developer","Hyderabad",skillsList,null);
         jobsList.add(job);
 
         List<JobsDto> jobsDtoList = jobMapper.toJobDtoList(jobsList);
@@ -60,6 +65,11 @@ class JobsTests {
 
         Mockito.when(jobService.getJobsSearchByLocation("Hyderabad")).thenReturn(jobsList);
         Mockito.when(jobsController.getAllJobs("Hyderabad",null)).thenReturn(responseEntity);
+        Assertions.assertEquals(jobsList.get(0).getJobId(),responseEntity.getBody());
+
+        String[] list = new String[]{"C"};
+        Mockito.when(jobService.getJobsSearchByLocation("Hyderabad")).thenReturn(jobsList);
+        Mockito.when(jobsController.getAllJobs("Hyderabad",list)).thenReturn(responseEntity);
         Assertions.assertEquals(jobsList.get(0).getJobId(),responseEntity.getBody());
 
     }
