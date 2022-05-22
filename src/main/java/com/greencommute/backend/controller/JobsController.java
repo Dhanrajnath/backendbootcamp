@@ -6,6 +6,7 @@ import com.greencommute.backend.entity.Jobs;
 import com.greencommute.backend.exception.DataNotFoundException;
 import com.greencommute.backend.helper.Helper;
 import com.greencommute.backend.mapper.JobMapper;
+import com.greencommute.backend.service.JobService;
 import com.greencommute.backend.service.JobServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,12 +20,13 @@ import java.util.Optional;
 @RequestMapping("api/v1/jobs")
 public class JobsController {
 
-    private final JobServiceImpl jobService;
-
     @Autowired
-    public JobsController(JobServiceImpl jobService) {
-        this.jobService = jobService;
-    }
+    private JobService jobService;
+
+//    @Autowired
+//    public JobsController(JobServiceImpl jobService) {
+//        this.jobService = jobService;
+//    }
 
     @Autowired
     public Helper helper;

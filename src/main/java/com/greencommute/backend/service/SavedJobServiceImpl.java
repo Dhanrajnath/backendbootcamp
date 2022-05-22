@@ -15,13 +15,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class SavedJobServiceImpl implements  SavedJobService{
-    @Autowired
-    UserService userService;
-
-    @Autowired
-    JobService jobService;
-
+public class SavedJobServiceImpl implements  SavedJobService {
 
     UserJpa userJpa;
 
@@ -29,18 +23,14 @@ public class SavedJobServiceImpl implements  SavedJobService{
 
     @Autowired
     public SavedJobServiceImpl(UserJpa userJpa, SavedJobsJpa savedJobsJpa) {
-        this.userJpa =userJpa;
+        this.userJpa = userJpa;
         this.savedJobsJpa = savedJobsJpa;
     }
 
     @Override
-    public void saveToSavedJobs(int userId, int jobId) {
-        Optional<User> user = userService.getUserById(userId);
-        Optional<Jobs> jobs = jobService.getJobById(jobId);
-        if(user.isPresent() && jobs.isPresent()) {
-            SavedJobs savedJobs = new SavedJobs(new Timestamp(System.currentTimeMillis()), user.get(), jobs.get());
-            savedJobsJpa.save(savedJobs);
-        }
+    public void saveToSavedJobs(User user, Jobs job) {
+        SavedJobs savedJobs = new SavedJobs(new Timestamp(System.currentTimeMillis()), user , job);
+        savedJobsJpa.save(savedJobs);
     }
 
     @Override

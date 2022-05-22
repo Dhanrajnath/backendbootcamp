@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = &quot;org.mapstruct.ap.MappingProcessor&quot;,
-    date = &quot;2022-05-19T09:43:25+0530&quot;,
+    date = &quot;2022-05-20T19:24:16+0530&quot;,
     comments = &quot;version: 1.4.2.Final, compiler: javac, environment: Java 18.0.1.1 (Oracle Corporation)&quot;
 )
 @Component
@@ -15,16 +15,16 @@ import org.springframework.stereotype.Component;
 
     @Override
     public UserDto toUserDto(User optionalUser) {
-<span class="nc bnc" id="L18" title="All 2 branches missed.">        if ( optionalUser == null ) {</span>
+<span class="pc bpc" id="L18" title="1 of 2 branches missed.">        if ( optionalUser == null ) {</span>
 <span class="nc" id="L19">            return null;</span>
         }
 
-<span class="nc" id="L22">        UserDto userDto = new UserDto();</span>
+<span class="fc" id="L22">        UserDto userDto = new UserDto();</span>
 
-<span class="nc" id="L24">        userDto.setUserId( optionalUser.getUserId() );</span>
-<span class="nc" id="L25">        userDto.setUserName( optionalUser.getUserName() );</span>
+<span class="fc" id="L24">        userDto.setUserId( optionalUser.getUserId() );</span>
+<span class="fc" id="L25">        userDto.setUserName( optionalUser.getUserName() );</span>
 
-<span class="nc" id="L27">        return userDto;</span>
+<span class="fc" id="L27">        return userDto;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

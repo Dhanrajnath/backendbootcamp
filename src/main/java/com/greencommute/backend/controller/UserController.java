@@ -6,6 +6,7 @@ import com.greencommute.backend.entity.Jobs;
 import com.greencommute.backend.entity.User;
 import com.greencommute.backend.exception.DataNotFoundException;
 import com.greencommute.backend.mapper.UserMapper;
+import com.greencommute.backend.service.JobServiceImpl;
 import com.greencommute.backend.service.SavedJobServiceImpl;
 import com.greencommute.backend.service.UserServiceImpl;
 import lombok.extern.slf4j.Slf4j;
@@ -27,9 +28,12 @@ public class UserController {
 
      private final SavedJobServiceImpl savedJobService;
 
+     private final JobServiceImpl jobService;
+
     @Autowired
-    public UserController(UserServiceImpl userService, SavedJobServiceImpl savedJobService) {
+    public UserController(UserServiceImpl userService, JobServiceImpl jobService, SavedJobServiceImpl savedJobService) {
         this.userService = userService;
+        this.jobService = jobService;
         this.savedJobService = savedJobService;
     }
 
@@ -66,7 +70,9 @@ public class UserController {
             return ResponseEntity.badRequest().body(responseDto);
         }
         else {
-            savedJobService.saveToSavedJobs(id, reqPayload.get(jobId));
+            Optional<User> user = userService.getUserById(id);
+            Optional<Jobs> job = jobService.getJobById(reqPayload.get(jobId));
+            savedJobService.saveToSavedJobs(user.get(), job.get());
             ResponseDto responseDto = new ResponseDto();
             responseDto.setUserId(id);
             responseDto.setJobId(reqPayload.get(jobId));

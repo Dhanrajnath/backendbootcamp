@@ -1,0 +1,1 @@
+com.greencommute.backend.controller.JobsController#getAllJobs(Ljava/lang/String;[Ljava/lang/String;)Ljava/util/List;

@@ -5,17 +5,19 @@ import com.greencommute.backend.entity.Skills;
 import com.greencommute.backend.helper.Helper;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
-import org.mockito.Mockito;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@RunWith(SpringRunner.class)
 @SpringBootTest
 class HelperClassTests {
 
-    @Mock
+    @Autowired
     Helper helper;
 
     @Test
@@ -32,15 +34,12 @@ class HelperClassTests {
         skillNames.add(skill.getSkillName());
         skillNames.add(skill2.getSkillName());
 
-        Mockito.when(helper.getSkills(skillList)).thenReturn(skillNames);
+        Assertions.assertNotNull(helper);
         Assertions.assertEquals(skillNames,helper.getSkills(skillList));
-        Mockito.verify(helper).getSkills(skillList);
 
         skillNames = new ArrayList<>();
         List<Skills> skillsList1 = new ArrayList<>();
-        Mockito.when(helper.getSkills(skillsList1)).thenReturn(skillNames);
         Assertions.assertEquals(skillNames,helper.getSkills(skillsList1));
-        Mockito.verify(helper).getSkills(skillList);
     }
 
     @Test
@@ -58,13 +57,9 @@ class HelperClassTests {
         jobsList.add(job2);
 
         String[] skillSearch = new String[]{"a"};
-        Mockito.when(helper.getJobsSearchBySkills(jobsList,skillSearch)).thenReturn(jobsList);
         Assertions.assertEquals(jobsList,helper.getJobsSearchBySkills(jobsList,skillSearch));
-        Mockito.verify(helper).getJobsSearchBySkills(jobsList,skillSearch);
 
         String[] skillSearch2 = new String[]{"abb"};
-        Mockito.when(helper.getJobsSearchBySkills(jobsList,skillSearch2)).thenReturn(jobsList1);
         Assertions.assertEquals(jobsList1,helper.getJobsSearchBySkills(jobsList,skillSearch2));
-        Mockito.verify(helper).getJobsSearchBySkills(jobsList,skillSearch2);
     }
 }
