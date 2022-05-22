@@ -1,57 +1,0 @@
-
-qcom.greencommute.backend.helper.Helper#getJobsSearchBySkills(Ljava/util/List;[Ljava/lang/String;)Ljava/util/List;n
-d/home/dhanrp/Desktop/sonar/backendbootcamp/src/main/java/com/greencommute/backend/helper/Helper.java (+"1*à
-1n
-d/home/dhanrp/Desktop/sonar/backendbootcamp/src/main/java/com/greencommute/backend/helper/Helper.java (ÚÔ
-n
-d/home/dhanrp/Desktop/sonar/backendbootcamp/src/main/java/com/greencommute/backend/helper/Helper.java ( 
-%0java.util.stream.Stream"6java.util.Collection#stream()Ljava/util/stream/Stream;*
-
-jobsListjava.util.List2stream()Á
-‰
-n
-d/home/dhanrp/Desktop/sonar/backendbootcamp/src/main/java/com/greencommute/backend/helper/Helper.java( (	"
-%1java.util.function.Predicate"__declareFunction*;9
-7__sonar_lambda_1$com.greencommute.backend.helper.HelperÄ
-~
-
-__unknown_file (5
-"
-%1java.util.function.Predicate"
-skillToSearch"__id*%
-#
-skillToSearchjava.lang.String[]Ñ
-Å
-
-__unknown_file (3
-"
-%1java.util.function.Predicate"
-Helper.this"__id**(
-&com.greencommute.backend.helper.Helper⁄◊
-n
-d/home/dhanrp/Desktop/sonar/backendbootcamp/src/main/java/com/greencommute/backend/helper/Helper.java (
-
-%4java.util.stream.Stream"Wjava.util.stream.Stream#filter(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;*
-
-%0java.util.stream.Stream*$
-"
-%1java.util.function.Predicate2&filter(Ljava/util/function/Predicate;)¯
-ı
-n
-d/home/dhanrp/Desktop/sonar/backendbootcamp/src/main/java/com/greencommute/backend/helper/Helper.java (& 
-%5java.util.stream.Collector"@java.util.stream.Collectors#toList()Ljava/util/stream/Collector;*"
-java.util.stream.Collectors∆√
-n
-d/home/dhanrp/Desktop/sonar/backendbootcamp/src/main/java/com/greencommute/backend/helper/Helper.java ('
-%6java.util.List"Ojava.util.stream.Stream#collect(Ljava/util/stream/Collector;)Ljava/lang/Object;*
-
-%4java.util.stream.Stream*"
- 
-%5java.util.stream.Collector2%collect(Ljava/util/stream/Collector;)"à
-n
-d/home/dhanrp/Desktop/sonar/backendbootcamp/src/main/java/com/greencommute/backend/helper/Helper.java ((
-
-%6java.util.List:
-jobsListjava.util.List:#
-skillToSearchjava.lang.String[]B*(
-&com.greencommute.backend.helper.Helper

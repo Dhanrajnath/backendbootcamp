@@ -1,1 +1,0 @@
-com.greencommute.backend.controller.UserController#<init>(Lcom/greencommute/backend/service/UserServiceImpl;Lcom/greencommute/backend/service/JobServiceImpl;Lcom/greencommute/backend/service/SavedJobServiceImpl;)V
