@@ -1,0 +1,6 @@
+com.greencommute.backend.service.SavedJobServiceImpl#saveToSavedJobs(Lcom/greencommute/backend/entity/User;Lcom/greencommute/backend/entity/Jobs;)V
+com.greencommute.backend.entity.SavedJobs#<init>(Ljava/sql/Timestamp;Lcom/greencommute/backend/entity/User;Lcom/greencommute/backend/entity/Jobs;)V
+com.greencommute.backend.entity.SavedJobs#instance-init#
+java.sql.Timestamp#<init>(J)V
+java.sql.Timestamp#instance-init#
+java.lang.System#currentTimeMillis()J

@@ -1,0 +1,23 @@
+
+Xcom.greencommute.backend.controller.UserController#getSavedJobsOfUser(I)Ljava/util/List;z
+p/home/dhanrp/Desktop/sonar/backendbootcamp/src/main/java/com/greencommute/backend/controller/UserController.java6 6(("1*ü
+1z
+p/home/dhanrp/Desktop/sonar/backendbootcamp/src/main/java/com/greencommute/backend/controller/UserController.java7 7(Ž
+‹
+z
+p/home/dhanrp/Desktop/sonar/backendbootcamp/src/main/java/com/greencommute/backend/controller/UserController.java7 7(:
+%04com.greencommute.backend.service.SavedJobServiceImpl"__id*K*I4
+2com.greencommute.backend.controller.UserController"
+savedJobServiceÒÏ
+z
+p/home/dhanrp/Desktop/sonar/backendbootcamp/src/main/java/com/greencommute/backend/controller/UserController.java7 7(7
+%1java.util.List"\com.greencommute.backend.service.SavedJobServiceImpl#getSavedJobsByUserId(I)Ljava/util/List;*<
+:
+%04com.greencommute.backend.service.SavedJobServiceImpl*
+""2getSavedJobsByUserId(I)"”
+z
+p/home/dhanrp/Desktop/sonar/backendbootcamp/src/main/java/com/greencommute/backend/controller/UserController.java7 7(8
+
+%1java.util.List:
+""B64
+2com.greencommute.backend.controller.UserController

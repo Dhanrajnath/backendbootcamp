@@ -22,11 +22,6 @@ public class JobsController {
     @Autowired
     private JobService jobService;
 
-//    @Autowired
-//    public JobsController(JobServiceImpl jobService) {
-//        this.jobService = jobService;
-//    }
-
     @Autowired
     public Helper helper;
 

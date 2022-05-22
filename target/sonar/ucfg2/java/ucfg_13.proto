@@ -1,0 +1,36 @@
+
+C__sonar_lambda_0$com.greencommute.backend.controller.UserControllerz
+p/home/dhanrp/Desktop/sonar/backendbootcamp/src/main/java/com/greencommute/backend/controller/UserController.java=Z @(	"startingBlock*ž
+startingBlockz
+p/home/dhanrp/Desktop/sonar/backendbootcamp/src/main/java/com/greencommute/backend/controller/UserController.java=Z @(	ˆ
+…
+
+__unknown_file (
+
+reqPayloadjava.util.Map"__id*F*D4
+2com.greencommute.backend.controller.UserController"
+
+reqPayload€
+~
+
+__unknown_file (
+jobIdjava.lang.String"__id*A*?4
+2com.greencommute.backend.controller.UserController"
+jobId*
+1*ç
+1z
+p/home/dhanrp/Desktop/sonar/backendbootcamp/src/main/java/com/greencommute/backend/controller/UserController.java> >(Þ
+Û
+z
+p/home/dhanrp/Desktop/sonar/backendbootcamp/src/main/java/com/greencommute/backend/controller/UserController.java?! ?(6
+%4java.lang.Integer"__mapGet*
+
+
+reqPayloadjava.util.Map*
+
+jobIdjava.lang.String"„
+z
+p/home/dhanrp/Desktop/sonar/backendbootcamp/src/main/java/com/greencommute/backend/controller/UserController.java? ?(7
+"":,
+jobs$com.greencommute.backend.entity.JobsB 
+java.util.function.Predicate

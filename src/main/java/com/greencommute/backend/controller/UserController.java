@@ -72,7 +72,8 @@ public class UserController {
         else {
             Optional<User> user = userService.getUserById(id);
             Optional<Jobs> job = jobService.getJobById(reqPayload.get(jobId));
-            savedJobService.saveToSavedJobs(user.get(), job.get());
+            if(user.isPresent()&& job.isPresent())
+                savedJobService.saveToSavedJobs(user.get(), job.get());
             ResponseDto responseDto = new ResponseDto();
             responseDto.setUserId(id);
             responseDto.setJobId(reqPayload.get(jobId));

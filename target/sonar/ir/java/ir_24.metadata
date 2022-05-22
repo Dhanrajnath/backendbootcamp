@@ -1,0 +1,1 @@
+com.greencommute.backend.controller.UserController#getSavedJobsOfUser(I)Ljava/util/List;

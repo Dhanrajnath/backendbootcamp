@@ -1,0 +1,5 @@
+com.greencommute.backend.service.SavedJobServiceImpl#getSavedJobsByUserId(I)Ljava/util/List;
+java.util.ArrayList#<init>()V
+java.util.Optional#isPresent()Z
+java.util.ArrayList#instance-init#
+java.util.Optional#get()Ljava/lang/Object;
