@@ -1,1 +1,1 @@
-com.greencommute.backend.service.JobServiceImpl#getJobsSearchByLocation(Ljava/lang/String;)Ljava/util/List;
+com.greencommute.backend.helper.Helper#instance-init#

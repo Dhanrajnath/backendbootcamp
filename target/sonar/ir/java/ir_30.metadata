@@ -1,1 +1,1 @@
-com.greencommute.backend.service.JobServiceImpl#getJobById(I)Ljava/util/Optional;
+com.greencommute.backend.service.JobServiceImpl#getAllJobs()Ljava/util/List;

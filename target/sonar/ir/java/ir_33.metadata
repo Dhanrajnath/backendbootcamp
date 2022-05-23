@@ -1,1 +1,3 @@
-com.greencommute.backend.helper.Helper#instance-init#
+com.greencommute.backend.helper.Helper#getSkills(Ljava/util/List;)Ljava/util/List;
+java.util.ArrayList#<init>()V
+java.util.ArrayList#instance-init#

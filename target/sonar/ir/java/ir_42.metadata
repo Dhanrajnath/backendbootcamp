@@ -1,1 +1,1 @@
-com.greencommute.backend.exception.DataNotFoundException#instance-init#
+com.greencommute.backend.exception.DataNotFoundException#<init>(Ljava/lang/String;)V

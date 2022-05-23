@@ -1,1 +1,6 @@
-com.greencommute.backend.controller.UserController#<init>(Lcom/greencommute/backend/service/UserServiceImpl;Lcom/greencommute/backend/service/JobServiceImpl;Lcom/greencommute/backend/service/SavedJobServiceImpl;)V
+com.greencommute.backend.controller.UserController#getUserById(I)Lorg/springframework/http/ResponseEntity;
+org.springframework.http.ResponseEntity#ok()Lorg/springframework/http/ResponseEntity$BodyBuilder;
+java.util.Optional#isEmpty()Z
+java.util.Optional#get()Ljava/lang/Object;
+com.greencommute.backend.exception.DataNotFoundException#instance-init#
+com.greencommute.backend.exception.DataNotFoundException#<init>(Ljava/lang/String;)V

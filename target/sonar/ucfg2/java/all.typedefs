@@ -471,10 +471,10 @@ iterator()2java.util.ArrayList#iterator()Ljava/util/Iterator;I
 spliterator()8java.util.ArrayList#spliterator()Ljava/util/Spliterator;1
 isClear([JI)!java.util.ArrayList#isClear([JI)Zk
 )writeObject(Ljava/io/ObjectOutputStream;)>java.util.ArrayList#writeObject(Ljava/io/ObjectOutputStream;)V%
-size()java.util.ArrayList#size()Iç
+size()java.util.ArrayList#size()Iÿ
 2com.greencommute.backend.controller.UserControllerjava.lang.Objectq
-getSavedJobsOfUser(I)Xcom.greencommute.backend.controller.UserController#getSavedJobsOfUser(I)Ljava/util/List;¸
-°<init>(Lcom/greencommute/backend/service/UserServiceImpl;Lcom/greencommute/backend/service/JobServiceImpl;Lcom/greencommute/backend/service/SavedJobServiceImpl;)’com.greencommute.backend.controller.UserController#<init>(Lcom/greencommute/backend/service/UserServiceImpl;Lcom/greencommute/backend/service/JobServiceImpl;Lcom/greencommute/backend/service/SavedJobServiceImpl;)VØ
+getSavedJobsOfUser(I)Xcom.greencommute.backend.controller.UserController#getSavedJobsOfUser(I)Ljava/util/List;H
+<init>()<com.greencommute.backend.controller.UserController#<init>()VØ
 'deleteSavedJobsOfUser(ILjava/util/Map;)Écom.greencommute.backend.controller.UserController#deleteSavedJobsOfUser(ILjava/util/Map;)Lorg/springframework/http/ResponseEntity;¢
 !saveJobsForUser(ILjava/util/Map;)}com.greencommute.backend.controller.UserController#saveJobsForUser(ILjava/util/Map;)Lorg/springframework/http/ResponseEntity;|
 getUserById(I)jcom.greencommute.backend.controller.UserController#getUserById(I)Lorg/springframework/http/ResponseEntity;>

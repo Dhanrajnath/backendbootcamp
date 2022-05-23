@@ -4,7 +4,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.greencommute.backend.controller.JobsController;
 import com.greencommute.backend.dto.JobsDto;
 import com.greencommute.backend.entity.Jobs;
-import com.greencommute.backend.exception.DataNotFoundException;
+import com.greencommute.backend.entity.Skills;
+import com.greencommute.backend.helper.Helper;
 import com.greencommute.backend.mapper.JobMapper;
 import com.greencommute.backend.service.JobService;
 import org.junit.jupiter.api.BeforeEach;
@@ -34,6 +35,9 @@ class JobsTests {
 
     @InjectMocks
     JobsController jobsController;
+
+    @Mock
+    Helper helper;
 
     @Mock
     JobMapper jobMapper;
@@ -72,6 +76,10 @@ class JobsTests {
     @Test
     void getAllJobsTest() throws Exception {
         Jobs job = new Jobs(1,"Software Engineer","Developer","Hyderabad",null,null);
+        Skills skills = new Skills(1,"c",null);
+        List<Skills> skillsList = new ArrayList<>();
+        skillsList.add(skills);
+        job.setSkillList(skillsList);
         JobsDto jobDto = jobMapper.toJobsDto(job);
         Optional<Jobs> jobsOptional = Optional.of(job);
         List<Jobs> jobsList = new ArrayList<>();
@@ -85,12 +93,31 @@ class JobsTests {
         verify(jobService).getAllJobs();
         verify(jobService,times(1)).getAllJobs();
 
+        when(jobService.getJobsSearchByLocation("Hyderabad")).thenReturn(jobsList);
         mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/jobs?location=Hyderabad").
                         contentType(MediaType.APPLICATION_JSON).
                         content(asJsonString(jobsDtoList))).
                 andDo(MockMvcResultHandlers.print());
-//        verify(jobService).getAllJobs();
-        verify(jobService,times(2)).getAllJobs();
+        verify(jobService).getJobsSearchByLocation("Hyderabad");
+        verify(jobService,times(1)).getJobsSearchByLocation("Hyderabad");
+
+
+        String[] searchSkill = new String[]{"c"};
+        when(helper.getJobsSearchBySkills(jobsList,searchSkill)).thenReturn(jobsList);
+        mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/jobs?skill=c").
+                        contentType(MediaType.APPLICATION_JSON).
+                        content(asJsonString(jobsDtoList))).
+                andDo(MockMvcResultHandlers.print());
+        verify(helper).getJobsSearchBySkills(jobsList,searchSkill);
+        verify(helper,times(1)).getJobsSearchBySkills(jobsList,searchSkill);
+
+
+        when(helper.getJobsSearchBySkills(jobsList,searchSkill)).thenReturn(jobsList);
+        mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/jobs?location=Hyderabad&skill=c").
+                        contentType(MediaType.APPLICATION_JSON).
+                        content(asJsonString(jobsDtoList))).
+                andDo(MockMvcResultHandlers.print());
+        verify(helper,times(2)).getJobsSearchBySkills(jobsList,searchSkill);
     }
 
 }

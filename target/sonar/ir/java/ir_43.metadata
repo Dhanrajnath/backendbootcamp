@@ -1,1 +1,1 @@
-com.greencommute.backend.exception.DataNotFoundException#<init>(Ljava/lang/String;)V
+com.greencommute.backend.mapper.JobMapper#instance-init#

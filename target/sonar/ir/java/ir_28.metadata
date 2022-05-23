@@ -1,1 +1,1 @@
-com.greencommute.backend.service.JobServiceImpl#instance-init#
+com.greencommute.backend.service.JobServiceImpl#<init>(Lcom/greencommute/backend/repository/JobsJpa;)V

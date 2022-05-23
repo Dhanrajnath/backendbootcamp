@@ -1,1 +1,1 @@
-com.greencommute.backend.service.JobServiceImpl#getAllJobs()Ljava/util/List;
+com.greencommute.backend.service.JobServiceImpl#getJobsSearchByLocation(Ljava/lang/String;)Ljava/util/List;

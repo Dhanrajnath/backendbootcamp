@@ -24,18 +24,14 @@ import java.util.stream.Collectors;
 @RequestMapping("api/v1/users")
 public class UserController {
 
-     private final UserServiceImpl userService;
-
-     private final SavedJobServiceImpl savedJobService;
-
-     private final JobServiceImpl jobService;
+    @Autowired
+     private UserServiceImpl userService;
 
     @Autowired
-    public UserController(UserServiceImpl userService, JobServiceImpl jobService, SavedJobServiceImpl savedJobService) {
-        this.userService = userService;
-        this.jobService = jobService;
-        this.savedJobService = savedJobService;
-    }
+     private SavedJobServiceImpl savedJobService;
+
+    @Autowired
+     private JobServiceImpl jobService;
 
     @Autowired
     public UserMapper userMapper;

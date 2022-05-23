@@ -22,11 +22,6 @@ import java.util.Optional;
     @Autowired
     private JobService jobService;
 
-//    @Autowired
-//    public JobsController(JobServiceImpl jobService) {
-//        this.jobService = jobService;
-//    }
-
     @Autowired
     public Helper helper;
 
@@ -35,29 +30,29 @@ import java.util.Optional;
 
     @GetMapping
     public List&lt;JobsDto&gt; getAllJobs(@RequestParam(value=&quot;location&quot;,required = false) String loc, @RequestParam(value=&quot;skill&quot;,required = false) String[] skill) {
-<span class="fc" id="L38">        List&lt;Jobs&gt; jobsList = jobService.getAllJobs();</span>
-<span class="pc bpc" id="L39" title="2 of 4 branches missed.">        if(loc==null &amp;&amp; skill ==null){</span>
-<span class="fc" id="L40">            return jobMapper.toJobDtoList(jobsList);</span>
-<span class="nc bnc" id="L41" title="All 2 branches missed.">        } else if (loc==null) {</span>
-<span class="nc" id="L42">            List&lt;Jobs&gt; jobsList1 = helper.getJobsSearchBySkills(jobsList,skill);</span>
-<span class="nc" id="L43">            return jobMapper.toJobDtoList(jobsList1);</span>
-<span class="nc bnc" id="L44" title="All 2 branches missed.">        } else if (skill==null) {</span>
-<span class="nc" id="L45">            List&lt;Jobs&gt; jobsList2=jobService.getJobsSearchByLocation(loc);</span>
-<span class="nc" id="L46">           return jobMapper.toJobDtoList(jobsList2);</span>
+<span class="fc" id="L33">        List&lt;Jobs&gt; jobsList = jobService.getAllJobs();</span>
+<span class="fc bfc" id="L34" title="All 4 branches covered.">        if(loc==null &amp;&amp; skill ==null){</span>
+<span class="fc" id="L35">            return jobMapper.toJobDtoList(jobsList);</span>
+<span class="fc bfc" id="L36" title="All 2 branches covered.">        } else if (loc==null) {</span>
+<span class="fc" id="L37">            List&lt;Jobs&gt; jobsList1 = helper.getJobsSearchBySkills(jobsList,skill);</span>
+<span class="fc" id="L38">            return jobMapper.toJobDtoList(jobsList1);</span>
+<span class="fc bfc" id="L39" title="All 2 branches covered.">        } else if (skill==null) {</span>
+<span class="fc" id="L40">            List&lt;Jobs&gt; jobsList2=jobService.getJobsSearchByLocation(loc);</span>
+<span class="fc" id="L41">           return jobMapper.toJobDtoList(jobsList2);</span>
         } else{
-<span class="nc" id="L48">            List&lt;Jobs&gt; jobsByLoc =jobService.getJobsSearchByLocation(loc);</span>
-<span class="nc" id="L49">            List&lt;Jobs&gt; jobsByLocSkill=helper.getJobsSearchBySkills(jobsByLoc,skill);</span>
-<span class="nc" id="L50">            return jobMapper.toJobDtoList(jobsByLocSkill);</span>
+<span class="fc" id="L43">            List&lt;Jobs&gt; jobsByLoc =jobService.getJobsSearchByLocation(loc);</span>
+<span class="fc" id="L44">            List&lt;Jobs&gt; jobsByLocSkill=helper.getJobsSearchBySkills(jobsByLoc,skill);</span>
+<span class="fc" id="L45">            return jobMapper.toJobDtoList(jobsByLocSkill);</span>
         }
     }
 
     @GetMapping(&quot;/{id}&quot;)
     public JobsDto getJobById(@PathVariable(value=&quot;id&quot;) int id){
-<span class="fc" id="L56">        Optional&lt;Jobs&gt; job = jobService.getJobById(id);</span>
-<span class="pc bpc" id="L57" title="1 of 2 branches missed.">        if (job.isEmpty()){</span>
-<span class="nc" id="L58">            throw new DataNotFoundException(&quot;No job found with id: &quot;+id);</span>
+<span class="fc" id="L51">        Optional&lt;Jobs&gt; job = jobService.getJobById(id);</span>
+<span class="pc bpc" id="L52" title="1 of 2 branches missed.">        if (job.isEmpty()){</span>
+<span class="nc" id="L53">            throw new DataNotFoundException(&quot;No job found with id: &quot;+id);</span>
         }
-<span class="fc" id="L60">        return jobMapper.toJobsDto(job.get());</span>
+<span class="fc" id="L55">        return jobMapper.toJobsDto(job.get());</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

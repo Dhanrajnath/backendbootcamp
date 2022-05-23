@@ -2,14 +2,17 @@ package com.greencommute.backend;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.junit.runner.RunWith;
+import org.springframework.test.context.junit4.SpringRunner;
 
-@SpringBootTest
+@RunWith(SpringRunner.class)
 class BackendApplicationTests {
 
-	@Test
-	void contextLoads() {
-		Assertions.assertEquals(1,2-1);
-	}
+		@Test
+		void testApplication() {
+			String[] str = new String[]{};
+			BackendApplication.main(str);
+			Assertions.assertEquals(1,2-1);
+		}
 
 }
