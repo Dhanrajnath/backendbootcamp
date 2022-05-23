@@ -1,0 +1,97 @@
+
+ƒcom.greencommute.backend.controller.UserController#deleteSavedJobsOfUser(ILjava/util/Map;)Lorg/springframework/http/ResponseEntity;z
+p/home/dhanrp/Desktop/sonar/backendbootcamp/src/main/java/com/greencommute/backend/controller/UserController.javaR' R(<"startingBlock*´
+startingBlock{
+p/home/dhanrp/Desktop/sonar/backendbootcamp/src/main/java/com/greencommute/backend/controller/UserController.javaR< R(‹é
+æ
+z
+p/home/dhanrp/Desktop/sonar/backendbootcamp/src/main/java/com/greencommute/backend/controller/UserController.javaR_ R(k
+%8"
+__annotate*75
+3org.springframework.web.bind.annotation.RequestBody*
+
+
+reqPayloadjava.util.Map´
+±
+|
+p/home/dhanrp/Desktop/sonar/backendbootcamp/src/main/java/com/greencommute/backend/controller/UserController.javaR€ R(Š
+
+reqPayloadjava.util.Map"__annotation*
+
+%8*
+1*Ã
+1z
+p/home/dhanrp/Desktop/sonar/backendbootcamp/src/main/java/com/greencommute/backend/controller/UserController.javaS S($«
+¨
+z
+p/home/dhanrp/Desktop/sonar/backendbootcamp/src/main/java/com/greencommute/backend/controller/UserController.javaS S(%
+jobIdjava.lang.String"__id*	
+jobIdŽ
+‹
+z
+p/home/dhanrp/Desktop/sonar/backendbootcamp/src/main/java/com/greencommute/backend/controller/UserController.javaT T(:
+%04com.greencommute.backend.service.SavedJobServiceImpl"__id*K*I4
+2com.greencommute.backend.controller.UserController"
+savedJobServiceÞ
+Û
+z
+p/home/dhanrp/Desktop/sonar/backendbootcamp/src/main/java/com/greencommute/backend/controller/UserController.javaT+ T(@
+%1java.lang.Integer"__mapGet*
+
+
+reqPayloadjava.util.Map*
+
+jobIdjava.lang.StringÌÉ
+z
+p/home/dhanrp/Desktop/sonar/backendbootcamp/src/main/java/com/greencommute/backend/controller/UserController.javaT T(A
+
+%2void"Icom.greencommute.backend.service.SavedJobServiceImpl#deleteSavedJobs(II)V*<
+:
+%04com.greencommute.backend.service.SavedJobServiceImpl*
+""*
+
+%1java.lang.Integer2deleteSavedJobs(II)ÙÖ
+z
+p/home/dhanrp/Desktop/sonar/backendbootcamp/src/main/java/com/greencommute/backend/controller/UserController.javaU$ U(/.
+%3(com.greencommute.backend.dto.ResponseDto"(com.greencommute.backend.dto.ResponseDtoë
+è
+z
+p/home/dhanrp/Desktop/sonar/backendbootcamp/src/main/java/com/greencommute/backend/controller/UserController.javaU  U(1
+%4"2com.greencommute.backend.dto.ResponseDto#<init>()V*0
+.
+%3(com.greencommute.backend.dto.ResponseDtoð
+í
+z
+p/home/dhanrp/Desktop/sonar/backendbootcamp/src/main/java/com/greencommute/backend/controller/UserController.javaU U(27
+responseDto(com.greencommute.backend.dto.ResponseDto"__id*0
+.
+%3(com.greencommute.backend.dto.ResponseDtoÞ
+Û
+z
+p/home/dhanrp/Desktop/sonar/backendbootcamp/src/main/java/com/greencommute/backend/controller/UserController.javaW W(2
+%5java.lang.Integer"__mapGet*
+
+
+reqPayloadjava.util.Map*
+
+jobIdjava.lang.StringÊ
+Ç
+z
+p/home/dhanrp/Desktop/sonar/backendbootcamp/src/main/java/com/greencommute/backend/controller/UserController.javaY Y("9
+%63org.springframework.http.ResponseEntity$BodyBuilder"aorg.springframework.http.ResponseEntity#ok()Lorg/springframework/http/ResponseEntity$BodyBuilder;*+")
+'org.springframework.http.ResponseEntity·´
+z
+p/home/dhanrp/Desktop/sonar/backendbootcamp/src/main/java/com/greencommute/backend/controller/UserController.javaY Y(4-
+%7'org.springframework.http.ResponseEntity"uorg.springframework.http.ResponseEntity$BodyBuilder#body(Ljava/lang/Object;)Lorg/springframework/http/ResponseEntity;*;
+9
+%63org.springframework.http.ResponseEntity$BodyBuilder*9
+7
+responseDto(com.greencommute.backend.dto.ResponseDto2body(Ljava/lang/Object;)"­
+z
+p/home/dhanrp/Desktop/sonar/backendbootcamp/src/main/java/com/greencommute/backend/controller/UserController.javaY Y(5/
+-
+%7'org.springframework.http.ResponseEntity:
+"":
+
+reqPayloadjava.util.MapB64
+2com.greencommute.backend.controller.UserController

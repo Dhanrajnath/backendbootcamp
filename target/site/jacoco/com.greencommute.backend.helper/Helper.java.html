@@ -12,23 +12,23 @@ import java.util.stream.Collectors;
 @Component
 <span class="fc" id="L13">public class Helper {</span>
     public List&lt;String&gt; getSkills(List&lt;Skills&gt; skillsList) {
-<span class="nc" id="L15">        List&lt;String&gt; jobSkills = new ArrayList&lt;&gt;();</span>
-<span class="nc bnc" id="L16" title="All 2 branches missed.">        for (Skills skills : skillsList) {</span>
-<span class="nc" id="L17">            jobSkills.add(skills.getSkillName());</span>
-<span class="nc" id="L18">        }</span>
-<span class="nc" id="L19">        return jobSkills;</span>
+<span class="fc" id="L15">        List&lt;String&gt; jobSkills = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L16" title="All 2 branches covered.">        for (Skills skills : skillsList) {</span>
+<span class="fc" id="L17">            jobSkills.add(skills.getSkillName());</span>
+<span class="fc" id="L18">        }</span>
+<span class="fc" id="L19">        return jobSkills;</span>
     }
 
     public List&lt;Jobs&gt; getJobsSearchBySkills(List&lt;Jobs&gt; jobsList, String[] skillToSearch){
-<span class="nc" id="L23">        return jobsList.stream().filter(job -&gt; {</span>
-<span class="nc" id="L24">            List&lt;Skills&gt; skill = job.getSkillList();</span>
-<span class="nc" id="L25">            List&lt;String&gt; skillNames = getSkills(skill);</span>
-<span class="nc bnc" id="L26" title="All 2 branches missed.">            for (String skillName : skillToSearch) {</span>
-<span class="nc bnc" id="L27" title="All 2 branches missed.">                if (skillNames.contains(skillName))</span>
-<span class="nc" id="L28">                    return true;</span>
+<span class="fc" id="L23">        return jobsList.stream().filter(job -&gt; {</span>
+<span class="fc" id="L24">            List&lt;Skills&gt; skill = job.getSkillList();</span>
+<span class="fc" id="L25">            List&lt;String&gt; skillNames = getSkills(skill);</span>
+<span class="fc bfc" id="L26" title="All 2 branches covered.">            for (String skillName : skillToSearch) {</span>
+<span class="fc bfc" id="L27" title="All 2 branches covered.">                if (skillNames.contains(skillName))</span>
+<span class="fc" id="L28">                    return true;</span>
             }
-<span class="nc" id="L30">            return false;</span>
-<span class="nc" id="L31">        }).collect(Collectors.toList());</span>
+<span class="fc" id="L30">            return false;</span>
+<span class="fc" id="L31">        }).collect(Collectors.toList());</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

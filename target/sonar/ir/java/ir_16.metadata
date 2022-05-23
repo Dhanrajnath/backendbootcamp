@@ -1,0 +1,1 @@
+com.greencommute.backend.service.SavedJobServiceImpl#<init>(Lcom/greencommute/backend/repository/UserJpa;Lcom/greencommute/backend/repository/SavedJobsJpa;)V

@@ -6,6 +6,7 @@ import com.greencommute.backend.entity.Jobs;
 import com.greencommute.backend.entity.User;
 import com.greencommute.backend.exception.DataNotFoundException;
 import com.greencommute.backend.mapper.UserMapper;
+import com.greencommute.backend.service.JobServiceImpl;
 import com.greencommute.backend.service.SavedJobServiceImpl;
 import com.greencommute.backend.service.UserServiceImpl;
 import lombok.extern.slf4j.Slf4j;
@@ -18,78 +19,74 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-<span class="fc" id="L21">@Slf4j</span>
+<span class="fc" id="L22">@Slf4j</span>
 @RestController
 @RequestMapping(&quot;api/v1/users&quot;)
-public class UserController {
-
-     private final UserServiceImpl userService;
-
-     private final SavedJobServiceImpl savedJobService;
+<span class="fc" id="L25">public class UserController {</span>
 
     @Autowired
-<span class="fc" id="L31">    public UserController(UserServiceImpl userService, SavedJobServiceImpl savedJobService) {</span>
-<span class="fc" id="L32">        this.userService = userService;</span>
-<span class="fc" id="L33">        this.savedJobService = savedJobService;</span>
-<span class="fc" id="L34">    }</span>
+     private UserServiceImpl userService;
+
+    @Autowired
+     private SavedJobServiceImpl savedJobService;
+
+    @Autowired
+     private JobServiceImpl jobService;
 
     @Autowired
     public UserMapper userMapper;
 
     @GetMapping(&quot;/{id}&quot;)
     public ResponseEntity&lt;UserDto&gt; getUserById(@PathVariable(value = &quot;id&quot;) int id) {
-<span class="nc" id="L41">        Optional&lt;User&gt; user = userService.getUserById(id);</span>
-<span class="nc bnc" id="L42" title="All 2 branches missed.">        if (user.isEmpty()) {</span>
+<span class="fc" id="L41">        Optional&lt;User&gt; user = userService.getUserById(id);</span>
+<span class="pc bpc" id="L42" title="1 of 2 branches missed.">        if (user.isEmpty()) {</span>
 <span class="nc" id="L43">            throw new DataNotFoundException(&quot;No user with id: &quot; + id);</span>
         }
-<span class="nc" id="L45">        UserDto userDto = userMapper.toUserDto(user.get());</span>
-<span class="nc" id="L46">        return ResponseEntity.ok().body(userDto);</span>
+<span class="fc" id="L45">        UserDto userDto = userMapper.toUserDto(user.get());</span>
+<span class="fc" id="L46">        return ResponseEntity.ok().body(userDto);</span>
     }
 
     @GetMapping(&quot;/{id}/savedJobs&quot;)
     public List&lt;Jobs&gt; getSavedJobsOfUser(@PathVariable(value = &quot;id&quot;) int id) {
-<span class="nc" id="L51">        return savedJobService.getSavedJobsByUserId(id);</span>
+<span class="fc" id="L51">        return savedJobService.getSavedJobsByUserId(id);</span>
     }
 
     @PostMapping(&quot;/{id}/savedJobs&quot;)
     public ResponseEntity&lt;ResponseDto&gt; saveJobsForUser(@PathVariable(value = &quot;id&quot;) int id, @RequestBody Map&lt;String,Integer&gt; reqPayload) {
-<span class="nc" id="L56">        final String jobId = &quot;jobId&quot;;</span>
-<span class="nc" id="L57">        List&lt;Jobs&gt; savedJobList= savedJobService.getSavedJobsByUserId(id).stream().filter(jobs -&gt; {</span>
-<span class="nc" id="L58">            int savedJobId=jobs.getJobId();</span>
-<span class="nc bnc" id="L59" title="All 2 branches missed.">            return savedJobId == reqPayload.get(jobId);</span>
-<span class="nc" id="L60">        }).collect(Collectors.toList());</span>
-<span class="nc bnc" id="L61" title="All 2 branches missed.">        if(!savedJobList.isEmpty()){</span>
-<span class="nc" id="L62">            ResponseDto responseDto = new ResponseDto();</span>
-<span class="nc" id="L63">            responseDto.setUserId(id);</span>
-<span class="nc" id="L64">            responseDto.setJobId(reqPayload.get(jobId));</span>
-<span class="nc" id="L65">            responseDto.setMessage(&quot;Job already added to saved jobs&quot;);</span>
-<span class="nc" id="L66">            return ResponseEntity.badRequest().body(responseDto);</span>
+<span class="fc" id="L56">        final String jobId = &quot;jobId&quot;;</span>
+<span class="fc" id="L57">        List&lt;Jobs&gt; savedJobList= savedJobService.getSavedJobsByUserId(id).stream().filter(jobs -&gt; {</span>
+<span class="fc" id="L58">            int savedJobId=jobs.getJobId();</span>
+<span class="pc bpc" id="L59" title="1 of 2 branches missed.">            return savedJobId == reqPayload.get(jobId);</span>
+<span class="fc" id="L60">        }).collect(Collectors.toList());</span>
+<span class="fc bfc" id="L61" title="All 2 branches covered.">        if(!savedJobList.isEmpty()){</span>
+<span class="fc" id="L62">            ResponseDto responseDto = new ResponseDto();</span>
+<span class="fc" id="L63">            responseDto.setUserId(id);</span>
+<span class="fc" id="L64">            responseDto.setJobId(reqPayload.get(jobId));</span>
+<span class="fc" id="L65">            responseDto.setMessage(&quot;Job already added to saved jobs&quot;);</span>
+<span class="fc" id="L66">            return ResponseEntity.badRequest().body(responseDto);</span>
         }
         else {
-<span class="nc" id="L69">            savedJobService.saveToSavedJobs(id, reqPayload.get(jobId));</span>
-<span class="nc" id="L70">            ResponseDto responseDto = new ResponseDto();</span>
-<span class="nc" id="L71">            responseDto.setUserId(id);</span>
-<span class="nc" id="L72">            responseDto.setJobId(reqPayload.get(jobId));</span>
-<span class="nc" id="L73">            responseDto.setMessage(&quot;Successfully added to saved jobs&quot;);</span>
-<span class="nc" id="L74">            return ResponseEntity.ok().body(responseDto);</span>
+<span class="fc" id="L69">            Optional&lt;User&gt; user = userService.getUserById(id);</span>
+<span class="fc" id="L70">            Optional&lt;Jobs&gt; job = jobService.getJobById(reqPayload.get(jobId));</span>
+<span class="pc bpc" id="L71" title="3 of 4 branches missed.">            if(user.isPresent()&amp;&amp; job.isPresent())</span>
+<span class="nc" id="L72">                savedJobService.saveToSavedJobs(user.get(), job.get());</span>
+<span class="fc" id="L73">            ResponseDto responseDto = new ResponseDto();</span>
+<span class="fc" id="L74">            responseDto.setUserId(id);</span>
+<span class="fc" id="L75">            responseDto.setJobId(reqPayload.get(jobId));</span>
+<span class="fc" id="L76">            responseDto.setMessage(&quot;Successfully added to saved jobs&quot;);</span>
+<span class="fc" id="L77">            return ResponseEntity.ok().body(responseDto);</span>
         }
     }
 
     @DeleteMapping(&quot;/{id}/savedJobs&quot;)
     public ResponseEntity&lt;ResponseDto&gt; deleteSavedJobsOfUser(@PathVariable(value=&quot;id&quot;) int id, @RequestBody Map&lt;String,Integer&gt; reqPayload) {
-<span class="nc" id="L80">        final String jobId = &quot;jobId&quot;;</span>
-<span class="nc" id="L81">        Boolean res=savedJobService.deleteSavedJobs(id,reqPayload.get(jobId));</span>
-<span class="nc" id="L82">        ResponseDto responseDto=new ResponseDto();</span>
-<span class="nc" id="L83">        responseDto.setUserId(id);</span>
-<span class="nc" id="L84">        responseDto.setJobId(reqPayload.get(jobId));</span>
-<span class="nc bnc" id="L85" title="All 2 branches missed.">        if(Boolean.TRUE.equals(res)){</span>
-<span class="nc" id="L86">            responseDto.setMessage(&quot;Successfully deleted saved job&quot;);</span>
-<span class="nc" id="L87">            return ResponseEntity.ok().body(responseDto);</span>
-        }
-        else {
-<span class="nc" id="L90">            responseDto.setMessage(&quot;No saved job found with user id and job id&quot;);</span>
-<span class="nc" id="L91">            return ResponseEntity.badRequest().body(responseDto);</span>
-        }
+<span class="nc" id="L83">        final String jobId = &quot;jobId&quot;;</span>
+<span class="nc" id="L84">        savedJobService.deleteSavedJobs(id,reqPayload.get(jobId));</span>
+<span class="nc" id="L85">        ResponseDto responseDto=new ResponseDto();</span>
+<span class="nc" id="L86">        responseDto.setUserId(id);</span>
+<span class="nc" id="L87">        responseDto.setJobId(reqPayload.get(jobId));</span>
+<span class="nc" id="L88">        responseDto.setMessage(&quot;Successfully deleted saved job&quot;);</span>
+<span class="nc" id="L89">        return ResponseEntity.ok().body(responseDto);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>
