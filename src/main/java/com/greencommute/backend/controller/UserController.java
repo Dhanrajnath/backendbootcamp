@@ -3,9 +3,11 @@ package com.greencommute.backend.controller;
 import com.greencommute.backend.dto.ResponseDto;
 import com.greencommute.backend.dto.UserDto;
 import com.greencommute.backend.entity.Jobs;
+import com.greencommute.backend.entity.SavedJobs;
 import com.greencommute.backend.entity.User;
 import com.greencommute.backend.exception.DataNotFoundException;
 import com.greencommute.backend.mapper.UserMapper;
+import com.greencommute.backend.repository.SavedJobsJpa;
 import com.greencommute.backend.service.JobServiceImpl;
 import com.greencommute.backend.service.SavedJobServiceImpl;
 import com.greencommute.backend.service.UserServiceImpl;
@@ -32,6 +34,9 @@ public class UserController {
 
     @Autowired
      private JobServiceImpl jobService;
+
+    @Autowired
+    private SavedJobsJpa savedJobsJpa;
 
     @Autowired
     public UserMapper userMapper;
@@ -79,9 +84,13 @@ public class UserController {
     }
 
     @DeleteMapping("/{id}/savedJobs")
-    public ResponseEntity<ResponseDto> deleteSavedJobsOfUser(@PathVariable(value="id") int id, @RequestBody Map<String,Integer> reqPayload) {
+    public ResponseEntity<ResponseDto> deleteSavedJobsOfUser(@PathVariable(value="id") int id, @RequestBody Map<String,Integer> reqPayload)  throws DataNotFoundException  {
         final String jobId = "jobId";
-        savedJobService.deleteSavedJobs(id,reqPayload.get(jobId));
+        SavedJobs savedJob = savedJobsJpa.findByUserAndJobId(id, reqPayload.get(jobId));
+        if(savedJob == null){
+            throw  new DataNotFoundException("No saved job found with user id and job id");
+        }
+        savedJobService.deleteSavedJobs(savedJob);
         ResponseDto responseDto=new ResponseDto();
         responseDto.setUserId(id);
         responseDto.setJobId(reqPayload.get(jobId));

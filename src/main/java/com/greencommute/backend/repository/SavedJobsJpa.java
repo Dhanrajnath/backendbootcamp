@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface SavedJobsJpa extends JpaRepository<SavedJobs,Integer> {
     @Query(value = "select * from saved_job where user_id=?1 and job_id=?2",nativeQuery = true)
-    SavedJobs deleteByUserAndJobId(int userId, int jobId);
+    SavedJobs findByUserAndJobId(int userId, int jobId);
 
 }

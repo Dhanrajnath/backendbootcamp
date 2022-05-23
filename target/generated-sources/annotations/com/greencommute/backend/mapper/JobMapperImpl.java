@@ -11,8 +11,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-05-22T10:40:43+0530",
-    comments = "version: 1.4.2.Final, compiler: javac, environment: Java 16.0.1 (Private Build)"
+    date = "2022-05-23T09:44:21+0530",
+    comments = "version: 1.4.2.Final, compiler: javac, environment: Java 18.0.1.1 (Oracle Corporation)"
 )
 @Component
 public class JobMapperImpl implements JobMapper {

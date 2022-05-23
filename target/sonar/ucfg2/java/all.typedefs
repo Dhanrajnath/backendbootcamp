@@ -208,12 +208,12 @@ getCause()3java.lang.Throwable#getCause()Ljava/lang/Throwable;e
 0com.greencommute.backend.service.UserServiceImpl,com.greencommute.backend.service.UserServicejava.lang.Objecte
 getUserById(I)Scom.greencommute.backend.service.UserServiceImpl#getUserById(I)Ljava/util/Optional;†
 5<init>(Lcom/greencommute/backend/repository/UserJpa;)gcom.greencommute.backend.service.UserServiceImpl#<init>(Lcom/greencommute/backend/repository/UserJpa;)VD
-0com.greencommute.backend.service.SavedJobServicejava.lang.ObjectŸ
+0com.greencommute.backend.service.SavedJobServicejava.lang.Object¨
 4com.greencommute.backend.service.SavedJobServiceImpl0com.greencommute.backend.service.SavedJobServicejava.lang.Objectw
 getSavedJobsByUserId(I)\com.greencommute.backend.service.SavedJobServiceImpl#getSavedJobsByUserId(I)Ljava/util/List;â
-g<init>(Lcom/greencommute/backend/repository/UserJpa;Lcom/greencommute/backend/repository/SavedJobsJpa;)ùcom.greencommute.backend.service.SavedJobServiceImpl#<init>(Lcom/greencommute/backend/repository/UserJpa;Lcom/greencommute/backend/repository/SavedJobsJpa;)V`
-deleteSavedJobs(II)Icom.greencommute.backend.service.SavedJobServiceImpl#deleteSavedJobs(II)Vı
-]saveToSavedJobs(Lcom/greencommute/backend/entity/User;Lcom/greencommute/backend/entity/Jobs;)ìcom.greencommute.backend.service.SavedJobServiceImpl#saveToSavedJobs(Lcom/greencommute/backend/entity/User;Lcom/greencommute/backend/entity/Jobs;)V 
+g<init>(Lcom/greencommute/backend/repository/UserJpa;Lcom/greencommute/backend/repository/SavedJobsJpa;)ùcom.greencommute.backend.service.SavedJobServiceImpl#<init>(Lcom/greencommute/backend/repository/UserJpa;Lcom/greencommute/backend/repository/SavedJobsJpa;)Vı
+]saveToSavedJobs(Lcom/greencommute/backend/entity/User;Lcom/greencommute/backend/entity/Jobs;)ìcom.greencommute.backend.service.SavedJobServiceImpl#saveToSavedJobs(Lcom/greencommute/backend/entity/User;Lcom/greencommute/backend/entity/Jobs;)V≤
+<deleteSavedJobs(Lcom/greencommute/backend/entity/SavedJobs;)rcom.greencommute.backend.service.SavedJobServiceImpl#deleteSavedJobs(Lcom/greencommute/backend/entity/SavedJobs;)V 
 java.lang.Systemjava.lang.Object^
 $identityHashCode(Ljava/lang/Object;)6java.lang.System#identityHashCode(Ljava/lang/Object;)I*
 
