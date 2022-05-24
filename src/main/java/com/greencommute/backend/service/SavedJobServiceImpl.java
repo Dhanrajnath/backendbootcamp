@@ -3,7 +3,6 @@ package com.greencommute.backend.service;
 import com.greencommute.backend.entity.Jobs;
 import com.greencommute.backend.entity.SavedJobs;
 import com.greencommute.backend.entity.User;
-import com.greencommute.backend.exception.DataNotFoundException;
 import com.greencommute.backend.repository.SavedJobsJpa;
 import com.greencommute.backend.repository.UserJpa;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,11 +47,7 @@ public class SavedJobServiceImpl implements  SavedJobService {
     }
 
     @Override
-    public void deleteSavedJobs(int userId,int jobId) throws DataNotFoundException {
-        SavedJobs savedJob = savedJobsJpa.deleteByUserAndJobId(userId, jobId);
-        if(savedJob == null){
-            throw  new DataNotFoundException("No saved job found with user id and job id");
-        }
+    public void deleteSavedJobs(SavedJobs savedJob)  {
         savedJobsJpa.delete(savedJob);
     }
 }
