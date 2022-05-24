@@ -1,8 +1,0 @@
-com.greencommute.backend.controller.UserController#saveJobsForUser(ILjava/util/Map;)Lorg/springframework/http/ResponseEntity;
-java.util.stream.Collectors#toList()Ljava/util/stream/Collector;
-com.greencommute.backend.dto.ResponseDto#<init>()V
-java.util.Optional#isPresent()Z
-org.springframework.http.ResponseEntity#ok()Lorg/springframework/http/ResponseEntity$BodyBuilder;
-com.greencommute.backend.dto.ResponseDto#instance-init#
-java.util.Optional#get()Ljava/lang/Object;
-org.springframework.http.ResponseEntity#badRequest()Lorg/springframework/http/ResponseEntity$BodyBuilder;

@@ -1,41 +1,0 @@
-
-kcom.greencommute.backend.service.JobServiceImpl#getJobsSearchByLocation(Ljava/lang/String;)Ljava/util/List;w
-m/home/dhanrp/Desktop/sonar/backendbootcamp/src/main/java/com/greencommute/backend/service/JobServiceImpl.java   (-"startingBlock*‰
-startingBlockw
-m/home/dhanrp/Desktop/sonar/backendbootcamp/src/main/java/com/greencommute/backend/service/JobServiceImpl.java -  (>Æ
-Ã
-w
-m/home/dhanrp/Desktop/sonar/backendbootcamp/src/main/java/com/greencommute/backend/service/JobServiceImpl.java (
-%2"
-__annotate*
-java.lang.Override*
-
-locationjava.lang.String°
-­
-w
-m/home/dhanrp/Desktop/sonar/backendbootcamp/src/main/java/com/greencommute/backend/service/JobServiceImpl.java 5  (=
-locationjava.lang.String"__annotation*
-
-%2*
-1*þ
-1w
-m/home/dhanrp/Desktop/sonar/backendbootcamp/src/main/java/com/greencommute/backend/service/JobServiceImpl.java! !(÷
-ô
-w
-m/home/dhanrp/Desktop/sonar/backendbootcamp/src/main/java/com/greencommute/backend/service/JobServiceImpl.java! !(1
-%0+com.greencommute.backend.repository.JobsJpa"__id*@*>1
-/com.greencommute.backend.service.JobServiceImpl"	
-jobsJpañî
-w
-m/home/dhanrp/Desktop/sonar/backendbootcamp/src/main/java/com/greencommute/backend/service/JobServiceImpl.java! !(2
-%1java.util.List"acom.greencommute.backend.repository.JobsJpa#getJobsByLocation(Ljava/lang/String;)Ljava/util/List;*3
-1
-%0+com.greencommute.backend.repository.JobsJpa*
-
-locationjava.lang.String2%getJobsByLocation(Ljava/lang/String;)"‘
-w
-m/home/dhanrp/Desktop/sonar/backendbootcamp/src/main/java/com/greencommute/backend/service/JobServiceImpl.java! !(3
-
-%1java.util.List:
-locationjava.lang.StringB31
-/com.greencommute.backend.service.JobServiceImpl

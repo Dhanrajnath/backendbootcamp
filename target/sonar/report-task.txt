@@ -1,7 +1,0 @@
-organization=dhanrajnath
-projectKey=Dhanrajnath_backendbootcamp
-serverUrl=https://sonarcloud.io
-serverVersion=8.0.0.29017
-dashboardUrl=https://sonarcloud.io/dashboard?id=Dhanrajnath_backendbootcamp
-ceTaskId=AYDqw-C9TzcIiW06NMIU
-ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AYDqw-C9TzcIiW06NMIU

@@ -1,21 +1,0 @@
-
-Lcom.greencommute.backend.service.JobServiceImpl#getAllJobs()Ljava/util/List;w
-m/home/dhanrp/Desktop/sonar/backendbootcamp/src/main/java/com/greencommute/backend/service/JobServiceImpl.java ( "1*°
-1w
-m/home/dhanrp/Desktop/sonar/backendbootcamp/src/main/java/com/greencommute/backend/service/JobServiceImpl.java (÷
-ô
-w
-m/home/dhanrp/Desktop/sonar/backendbootcamp/src/main/java/com/greencommute/backend/service/JobServiceImpl.java (1
-%0+com.greencommute.backend.repository.JobsJpa"__id*@*>1
-/com.greencommute.backend.service.JobServiceImpl"	
-jobsJpa£ 
-w
-m/home/dhanrp/Desktop/sonar/backendbootcamp/src/main/java/com/greencommute/backend/service/JobServiceImpl.java ( 
-%1java.util.List"Oorg.springframework.data.jpa.repository.JpaRepository#findAll()Ljava/util/List;*3
-1
-%0+com.greencommute.backend.repository.JobsJpa2	findAll()"‘
-w
-m/home/dhanrp/Desktop/sonar/backendbootcamp/src/main/java/com/greencommute/backend/service/JobServiceImpl.java (!
-
-%1java.util.ListB31
-/com.greencommute.backend.service.JobServiceImpl
