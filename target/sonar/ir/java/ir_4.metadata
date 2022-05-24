@@ -1,1 +1,0 @@
-com.greencommute.backend.entity.SavedJobs#<init>(Ljava/sql/Timestamp;Lcom/greencommute/backend/entity/User;Lcom/greencommute/backend/entity/Jobs;)V
